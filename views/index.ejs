@@ -1,0 +1,138 @@
+<%- include("partials/header") %>
+  <%- include("partials/navbar") %>
+
+    <!-- HEROE -->
+    <div class="px-4 py-5 text-center home-heroe-1">
+      <h1 class="display-5 fw-bold text-light">ProperFix & Company</h1>
+      <div class="col-11 col-lg-7 mx-auto">
+        <p class="lead mb-4 mx-auto text-light">Building Trust
+        </p>
+        <div class="d-grid gap-2 d-sm-flex justify-content-center">
+          <a href="/contact" type="button" class="btn btn-primary btn-md px-4 gap-3 contact-us-button">Contact Us</a>
+          <a href="/gallery" class="btn btn-outline-light btn-md px-4 view-galary-button" type="button">View Galary</a>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="px-4 py-5 text-center home-heroe-2">
+      <h1 class="display-5 fw-bold text-light">Welcome to ProperFix</h1>
+      <div class="col-11 col-lg-8 mx-auto">
+        <p class="py-2 lead mb-4 mx-auto text-light lh-md">
+          A family run renovations and extentions company based in London. We strive to give the best possible service
+          at a reasonable price. With over 25 years experince in contruction we are dedicated to working closely with
+          our customers to ensure an end product which we can all be be proud of.
+        </p>
+        <div class="d-grid gap-2 justify-content-center">
+          <a href="/contact" type="button" class="btn btn-outline-light btn-md px-4 gap-3 contact-us-button-2">Contact
+            Us</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ALBUM -->
+    <div class="py-5 album-section bg-light">
+      <h1 class="pb-5 m-0 display-5 text-center">Our Services</h1>
+      <div class="container col-11 col-lg-8">
+        <div class="row row-cols-1 row-cols-sm-2 g-3">
+          <div class="col">
+            <a href="">
+              <div class="card card-text img-1 shadow-sm text-center">Installations</div>
+            </a>
+          </div>
+          <div class="col">
+            <a href="">
+              <div class="card card-text img-2 shadow-sm text-center">Refurbishment</div>
+            </a>
+          </div>
+          <div class="col">
+            <a href="">
+              <div class="card card-text img-3 shadow-sm text-center">Extentions & Conversions</div>
+            </a>
+          </div>
+
+          <div class="col">
+            <a href="">
+              <div class="card card-text img-4 shadow-sm text-center">Landscaping</div>
+            </a>
+          </div>
+          <div class="col">
+            <a href="">
+              <div class="card card-text img-5 shadow-sm text-center">Maintenance & Repairs</div>
+            </a>
+          </div>
+          <div class="col">
+            <a href="">
+              <div class="card card-text img-6 shadow-sm text-center">Painting & Decorating</div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- CONTACT FORM -->
+    <section class="py-5">
+      <h1 class="display-5 fw-bold text-light text-center mb-5">Get In Touch</h1>
+      <div class="contact-container-home col-10 col-md-8 col-lg-10 col-xl-9 text-light">
+        <form class="contact-form-home container lead py-4 col-12 text-dark" action="/send-message" method="POST">
+          <p class="contact-key float-righ mb-2">* Required</p>
+          <div class="names">
+            <div class="fName my-2">
+              <label class="form-label mb-1">First Name *</label>
+              <input name="fName" type="text" class="form-control" id="firstName" required>
+            </div>
+            <div class="lName my-2">
+              <label class="form-label mb-1">Last Name *</label>
+              <input name="lName" type="text" class="form-control" id="lastName" required>
+            </div>
+          </div>
+          <div class="contact-info">
+            <div class="email my-2">
+              <label class="form-label mb-1">Your Email *</label>
+              <input name="email" type="email" class="form-control" id="inputEmail" required>
+            </div>
+            <div class="phone my-2">
+              <label for="inputPhone" class="form-label mb-1">Phone</label>
+              <input name="phone" type="phone" class="form-control" id="inputPhone">
+            </div>
+          </div>
+          <div class="my-2">
+            <label class="form-label mb-1">Your Message *</label>
+            <textarea name="message" class="form-control" id="inputMessage" rows="3" required></textarea>
+          </div>
+          <div class="submit">
+            <button type="submit" class="btn btn-outline-dark mt-2">Submit</button>
+          </div>
+        </form>
+        <div class="contact-details-home mx-auto">
+          <div class="flex my-2">
+            <svg xmlns="http://www.w3.org/2000/svg" class="mx-0" width="30" height="30" fill="currentColor"
+              class="bi bi-telephone-fill" viewBox="0 0 16 16">
+              <path fill-rule="evenodd"
+                d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z" />
+            </svg>
+            <p class="m-auto mx-0 lead">+44 7853 052250</p>
+          </div>
+          <div class="flex my-2">
+            <svg xmlns="http://www.w3.org/2000/svg" class="mx-0" width="30" height="30" fill="currentColor"
+              class="bi bi-envelope-fill" viewBox="0 0 16 16">
+              <path
+                d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555ZM0 4.697v7.104l5.803-3.558L0 4.697ZM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757Zm3.436-.586L16 11.801V4.697l-5.803 3.546Z" />
+            </svg>
+            <p class="m-auto mx-0 lead">pro-ff@hotmail.com</p>
+          </div>
+          <div class="flex my-2">
+            <svg xmlns="http://www.w3.org/2000/svg" class="mx-0" width="30" height="30" fill="currentColor"
+              class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
+              <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z" />
+            </svg>
+            <p class="m-auto mx-0 lead">No. 32, 19 Forge Square <br> London <br> E14 3GW</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+    <%- include("partials/footer") %>

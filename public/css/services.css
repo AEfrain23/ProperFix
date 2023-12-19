@@ -1,0 +1,25 @@
+.services-heroe-1 {
+    padding: 34vh 10px 14vh 10px !important;
+    background-image: url("../images/landscaping-01-dark.jpg");
+    background-position: left 0%; /* x-position y-position */
+    background-size: cover;
+}
+
+@media (max-width: 576px) {
+    .services-heroe-1 {
+        height: 20rem;
+        padding: 10rem 10px 14rem 10px !important;
+    }
+
+    .about-heroe-2 {
+        padding: 50px 10px 50px 10px !important;
+    }
+
+    .services-heroe-2 div p {
+        font-size: 1rem;
+    }
+}
+
+.album-section {
+    background-color: #f3f3f3 !important;
+}

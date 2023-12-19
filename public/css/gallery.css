@@ -1,0 +1,58 @@
+.gallery-heroe-1 {
+    padding-top: 12.5rem !important;
+    padding-bottom: 5rem !important;
+}
+
+
+.album-section {
+    background-color: #f3f3f3 !important;
+}
+
+/* ALBUM SECTION */
+
+
+.carousel {
+    width: 60rem;
+}
+
+.carousel-section img {
+    object-fit: cover;
+    height: 100% !important;
+    margin: none;
+}
+
+.heroe-section-gallery {
+    padding-top: 12.5rem !important;
+    padding-bottom: 5rem !important;
+}
+
+.contact-us-button:hover {
+    background-color: rgb(60, 108, 228) !important;
+}
+
+@media (max-width: 576px) {
+    .gallery-heroe-1 {
+        padding-top: 7.5rem !important;
+        padding-bottom: 2.5rem !important;
+    }
+    .gallery-heroe-1 div p {
+        font-size: 1rem;
+    }
+
+    .gallery-heroe-2 {
+        padding-top: 2.5rem !important;
+        padding-bottom: 2.5rem !important;
+    }
+    .gallery-heroe-2 div p {
+        font-size: 1rem;
+    }
+
+    .carousel {
+        width: 100%;
+    }
+    .carousel-section img {
+        object-fit: cover;
+        height: 20rem;
+        margin: none;
+    }
+}
