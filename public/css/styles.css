@@ -314,6 +314,13 @@ a {
   }
 }
 
+@media (max-width: 576px) {
+
+  .album-section div p {
+    font-size: 1rem;
+  }
+}
+
 /* ---------- CONTACT SECTION: ---------- */
 .contact-form-home {
   background-color: white;
@@ -468,6 +475,10 @@ a {
     display: flex;
     gap: var(--gap, 0rem) !important;
   }
+}
+
+.red-text {
+  color: red;
 }
 
 /* ---------------------------------------- BOOTSTRAP: ---------------------------------------- */

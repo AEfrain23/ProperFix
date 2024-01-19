@@ -31,9 +31,16 @@
     </div>
 
     <!-- ALBUM -->
-    <div class="py-5 album-section bg-light">
-      <h1 class="pb-5 m-0 display-5 text-center">Our Services</h1>
-      <div class="container col-11 col-lg-8">
+    <div class="px-4 py-5 text-center album-section bg-light text-center">
+      <h1 class="display-5">Our Services</h1>
+      <div class="col-11 col-lg-8 mx-auto">
+        <p class="py-2 lead mb-4 mx-auto lh-md">
+          Due to our extensive experience in the construction sector we are able to offer a wide range of services. Here
+          at ProperFix.Co our services include everything from complete home extentions to simple home maintenances. If
+          you have a project in mind please get in contact now.
+        </p>
+      </div>
+      <div class="container col-12 col-lg-8">
         <div class="row row-cols-1 row-cols-sm-2 g-3">
           <div class="col">
             <a href="">
@@ -76,20 +83,20 @@
       <h1 class="display-5 fw-bold text-light text-center mb-5">Get In Touch</h1>
       <div class="contact-container-home col-10 col-md-8 col-lg-10 col-xl-9 text-light">
         <form class="contact-form-home container lead py-4 col-12 text-dark" action="/send-message" method="POST">
-          <p class="contact-key float-righ mb-2">* Required</p>
+          <p class="contact-key float-righ mb-2"><span class="red-text">*</span> Required</p>
           <div class="names">
             <div class="fName my-2">
-              <label class="form-label mb-1">First Name *</label>
+              <label class="form-label mb-1">First Name <span class="red-text">*</span></label>
               <input name="fName" type="text" class="form-control" id="firstName" required>
             </div>
             <div class="lName my-2">
-              <label class="form-label mb-1">Last Name *</label>
+              <label class="form-label mb-1">Last Name <span class="red-text">*</span></label>
               <input name="lName" type="text" class="form-control" id="lastName" required>
             </div>
           </div>
           <div class="contact-info">
             <div class="email my-2">
-              <label class="form-label mb-1">Your Email *</label>
+              <label class="form-label mb-1">Your Email <span class="red-text">*</span></label>
               <input name="email" type="email" class="form-control" id="inputEmail" required>
             </div>
             <div class="phone my-2">
@@ -98,7 +105,7 @@
             </div>
           </div>
           <div class="my-2">
-            <label class="form-label mb-1">Your Message *</label>
+            <label class="form-label mb-1">Your Message <span class="red-text">*</span></label>
             <textarea name="message" class="form-control" id="inputMessage" rows="3" required></textarea>
           </div>
           <div class="submit">

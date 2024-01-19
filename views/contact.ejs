@@ -15,20 +15,20 @@
       <div class="contact-container col-10 col-md-8 col-lg-10 col-xl-9">
         <form class="contact-form container lead text-light py-4 col-12" action="/send-message" method="POST">
           <h1 class="display-5 text-light text-center mb-3">Get in touch</h1>
-          <p class="contact-key float-righ mb-2">* Required</p>
+          <p class="contact-key float-righ mb-2"><span class="red-text">* </span>Required</p>
           <div class="names">
             <div class="fName my-2">
-              <label class="form-label mb-1">First Name *</label>
+              <label class="form-label mb-1">First Name <span class="red-text">*</span></label>
               <input name="fName" type="text" class="form-control" id="firstName" required>
             </div>
             <div class="lName my-2">
-              <label class="form-label mb-1">Last Name *</label>
+              <label class="form-label mb-1">Last Name <span class="red-text">*</span></label>
               <input name="lName" type="text" class="form-control" id="lastName" required>
             </div>
           </div>
           <div class="contact-info">
             <div class="email my-2">
-              <label class="form-label mb-1">Your Email *</label>
+              <label class="form-label mb-1">Your Email <span class="red-text">*</span></label>
               <input name="email" type="email" class="form-control" id="inputEmail" required>
             </div>
             <div class="phone my-2">
@@ -37,7 +37,7 @@
             </div>
           </div>
           <div class="my-2">
-            <label class="form-label mb-1">Your Message *</label>
+            <label class="form-label mb-1">Your Message <span class="red-text">*</span></label>
             <textarea name="message" class="form-control" id="inputMessage" rows="3" required></textarea>
           </div>
           <div class="submit">
