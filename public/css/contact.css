@@ -4,6 +4,10 @@
     padding-bottom: 5rem !important;
 }
 
+.contact-details div p {
+    text-decoration: none;
+}
+
 @media (max-width: 576px) {
     .contact-heroe-1 {
         padding-top: 7.5rem !important;

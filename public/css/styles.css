@@ -432,6 +432,10 @@ a {
   padding-bottom: 5rem !important;
 }
 
+.contact-details-home div p {
+  text-decoration: none;
+}
+
 @media (max-width: 576px) {
   .heroe-section-contact-2 {
     padding-top: 5rem !important;

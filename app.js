@@ -1,6 +1,7 @@
 import express from "express";
 import bodyParser from "body-parser";
 import nodemailer from 'nodemailer';
+import ejs from 'ejs';
 import 'dotenv/config'
 
 
@@ -11,21 +12,29 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
 
+
 app.get("/", (req, res) => {
-  res.render("index.ejs")
+  const date = new Date;
+  res.render("index.ejs", { year: date.getFullYear() });
 });
 app.get("/about", (req, res) => {
-  res.render("about.ejs")
+  const date = new Date;
+  res.render("about.ejs", { year: date.getFullYear() });
 });
 app.get("/services", (req, res) => {
-  res.render("services.ejs")
+  const date = new Date;
+  res.render("services.ejs", { year: date.getFullYear() });
 });
 app.get("/gallery", (req, res) => {
-  res.render("gallery.ejs")
+  const date = new Date;
+  res.render("gallery.ejs", { year: date.getFullYear() });
 });
 app.get("/contact", (req, res) => {
-  res.render("contact.ejs")
+  const date = new Date;
+  res.render("contact.ejs", { year: date.getFullYear() });
 });
+
+
 
 app.post("/send-message", (req, res) => {
   const fName = req.body.fName;
