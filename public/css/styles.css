@@ -48,6 +48,10 @@ header {
   height: 35px;
 }
 
+.logo-container a {
+  padding: 0;
+}
+
 
 #navbar {
   display: flex;
@@ -117,7 +121,7 @@ header {
     display: block;
   }
 
-  .navbar-container a {
+  #navbar a {
     color: white;
     width: 100%;
     padding: 1.5rem;
@@ -165,7 +169,7 @@ header {
     justify-content: space-between;
   }
 
-  .navbar-container a {
+  #navbar a {
     padding: 1rem;
   }
 
@@ -188,6 +192,7 @@ header {
 
   .company-name {
     height: 20px;
+    top: 0px;
   }
 
   .mobile-navbar-toggle {
