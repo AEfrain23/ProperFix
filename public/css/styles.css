@@ -274,7 +274,7 @@ a {
 .horizontal-line {
   height: 3rem;
   margin-top: 3rem !important;
-  border-top: solid rgb(161, 161, 161) 1px;
+  border-top: solid #dee2e6 1px;
 }
 
 .img-1 {
