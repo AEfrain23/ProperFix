@@ -89,7 +89,7 @@ app.post("/send-message", (req, res) => {
   //       alert("mail sent successfully")
   //     });
   // }
-  res.redirect("/contact");
+  res.redirect("/");
 });
 
 app.listen(port, () => {
