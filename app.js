@@ -6,7 +6,7 @@ import 'dotenv/config'
 
 
 const app = express();
-const port = 3000;
+const port = 3004;
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
@@ -93,5 +93,5 @@ app.post("/send-message", (req, res) => {
 });
 
 app.listen(port, () => {
-  console.log("Server is runing on port 3000");
+  console.log("Server is runing on port 3004");
 });
