@@ -1,6 +1,7 @@
 import express from "express";
 import bodyParser from "body-parser";
 import nodemailer from 'nodemailer';
+import fetch from 'node-fetch';  // node-fetch v2 // For sending requests to reCAPTCHA API
 import ejs from 'ejs';
 import 'dotenv/config'
 
@@ -36,61 +37,76 @@ app.get("/contact", (req, res) => {
 
 
 
-app.post("/send-message", (req, res) => {
-  const fName = req.body.fName;
-  const lName = req.body.lName;
-  const customerEmail = req.body.email;
-  let phone;  // REMEMBER: You cant use a variable declared in an 'if' statement outside of that statement. It must first be decalred outside.
-  if (req.body.phone) {
-    phone = req.body.phone;
-  } else {
-    phone = "NOT PROVIDED";
-  }
-  const customerMessage = req.body.message;
+// POST route for form submission
+app.post('/send-message', (req, res) => {
+  const { fName, lName, email, phone, customerMessage, 'g-recaptcha-response': captchaResponse } = req.body;
 
-  let transporter = nodemailer.createTransport({
-    host: 'smtp-relay.sendinblue.com',
-    port: 587,
-    auth: {
-      user: "angelefrain23@gmail.com",
-      pass: process.env.SMTP_KEY
-    }
+  // Step 1: Verify reCAPTCHA response with Google
+  const secretKey = process.env.RECAPTCHA_KEY;  // Store this in your .env file
+
+  const params = new URLSearchParams({
+    secret: secretKey,
+    response: captchaResponse,
+    remoteip: req.ip,
   });
 
-  const message = {
-    from: customerEmail,
-    to: "properfix.co@gmail.com",
-    subject: "properfix.com - " + fName + " " + lName,
-    text: "Name: " + fName + " " + lName +
-      "\n" + "Phone: " + phone +
-      "\n" + "Message: " + customerMessage  // REMEMBER: "\n" in concactonation creates a new line break.
-  }
+  fetch('https://www.google.com/recaptcha/api/siteverify', {
+    method: 'POST',
+    body: params,
+  })
+    .then(response => response.json())
+    .then(data => {
+      // Step 2: If reCAPTCHA validation is successful, send the email
+      if (data.success) {
+        console.log("Successful reCAPTCHA validation");
 
-  transporter.sendMail(message, function (err, info) {
-    if (err) {
-      console.log(err)
-    } else {
-      console.log(info);
-    }
-  });
+        let transporter = nodemailer.createTransport({
+          host: 'smtp-relay.brevo.com',
+          port: 587,
+          auth: {
+            user: "angelefrain23@gmail.com",
+            pass: process.env.SMTP_KEY,
+          },
+        });
 
-  // function sendEmail() {
-  //   Email.send({
-  //     Host: "smtp-relay.sendinblue.com",
-  //     Port: "587",
-  //     Login: "angelefrain23@gmail.com",
-  //     Password: "X4ZkM5cKN0DRHt1d",
-  //     To: 'angelefrain23@gmail.com',
-  //     From: "angelefrain96@hotmail.com",
-  //     Subject: "Sending Email using javascript",
-  //     Body: "Well that was easy!!",
-  //   })
-  //     .then(function (message) {
-  //       alert("mail sent successfully")
-  //     });
-  // }
-  res.redirect("/");
-});
+        const message = {
+          from: email,
+          to: "properfix.co@gmail.com",
+          subject: "properfix.com - " + fName + " " + lName,
+          text: "Name: " + fName + " " + lName +
+            "\n" + "Phone: " + phone +
+            "\n" + "Message: " + customerMessage  // REMEMBER: "\n" in concactonation creates a new line break.
+        }
+
+        // Send the email using Nodemailer
+        transporter.sendMail(message, (err, info) => {
+          if (err) {
+            console.log(err);
+            res.status(500).json({ message: "Error sending email" });
+          } else {
+            console.log(info);
+            const emailSent = "Email sent successfully";
+            const textResponse = "Thank you for you message.";
+            // Step 3: Render the confirmation page with a success message
+            res.render("index.ejs", { confirmation: emailSent, message: textResponse });  // Render the EJS page with the confirmation message
+          }
+        });
+
+      } else {
+        // If reCAPTCHA failed, render the contact page with an error message
+        const errorMessage = "reCAPTCHA validation failed";
+        const textResponse = "Please try again.";
+        console.log("reCAPTCHA validation failed.")
+        res.render("index.ejs", { confirmation: errorMessage, message: textResponse });
+      }
+    })
+    .catch(err => {
+      console.error(err);
+      res.status(500).json({ message: "Error validating reCAPTCHA" });
+    });
+
+})
+
 
 app.listen(port, () => {
   console.log("Server is runing on port 3004");
