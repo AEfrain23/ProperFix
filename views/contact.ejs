@@ -75,6 +75,14 @@
       </div>
     </section>
 
+    <% if (locals.confirmation) { %>
+      <div class="confirmation-container" style="visibility: visible;">
+        <div class="confirmation-box">
+          <p class="confirmation-message"><%- confirmation %></p>
+        </div>
+      </div>
+    <% } %>
+
     <!-- HEROE 2: CONTACT US -->
     <div class="px-4 py-5 text-center contact-heroe-2">
       <h1 class="display-5 text-light">We look forward to working with you</h1>

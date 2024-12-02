@@ -40,6 +40,13 @@ app.get("/contact", (req, res) => {
 // POST route for form submission
 app.post('/send-message', (req, res) => {
   const { fName, lName, email, phone, customerMessage, 'g-recaptcha-response': captchaResponse } = req.body;
+  let customerPhone
+
+  if (phone) {
+    customerPhone = phone;
+  }  else {
+    customerPhone = "Phone number not provided"
+  }
 
   // Step 1: Verify reCAPTCHA response with Google
   const secretKey = process.env.RECAPTCHA_KEY;  // Store this in your .env file
@@ -61,7 +68,7 @@ app.post('/send-message', (req, res) => {
         console.log("Successful reCAPTCHA validation");
 
         let transporter = nodemailer.createTransport({
-          host: 'smtp-relay.brevo.com',
+          host: 'smtp-relay.sendinblue.com',
           port: 587,
           auth: {
             user: "angelefrain23@gmail.com",
@@ -74,7 +81,7 @@ app.post('/send-message', (req, res) => {
           to: "properfix.co@gmail.com",
           subject: "properfix.com - " + fName + " " + lName,
           text: "Name: " + fName + " " + lName +
-            "\n" + "Phone: " + phone +
+            "\n" + "Phone: " + customerPhone +
             "\n" + "Message: " + customerMessage  // REMEMBER: "\n" in concactonation creates a new line break.
         }
 
@@ -85,7 +92,7 @@ app.post('/send-message', (req, res) => {
             res.status(500).json({ message: "Error sending email" });
           } else {
             console.log(info);
-            const emailSent = "Email sent successfully";
+            const emailSent = "Message sent successfully";
             const textResponse = "Thank you for you message.";
             // Step 3: Render the confirmation page with a success message
             res.render("index.ejs", { confirmation: emailSent, message: textResponse });  // Render the EJS page with the confirmation message

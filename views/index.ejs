@@ -114,6 +114,14 @@
             <button type="submit" class="btn btn-outline-dark mt-2">Submit</button>
           </div>
         </form>
+
+        <% if (locals.confirmation) { %>
+          <div class="confirmation-container" style="visibility: visible;">
+            <div class="confirmation-box">
+              <p class="confirmation-message"><%- confirmation %></p>
+            </div>
+          </div>
+        <% } %>
         
         <div class="contact-details-home mx-auto">
           <div class="flex my-2">

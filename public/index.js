@@ -14,6 +14,13 @@ navbarToggle.addEventListener("click", () => {
     }
 });
 
-// document.querySelector("button").addEventListener("click", function () {
-//     document.querySelector("#navbar").classList.toggle("hide")
-// });
+
+// COTACT FORM SENT - Here we are reloading the page 5s after the send button has been pressed.
+const confirmationWindow = document.querySelector(".confirmation-container");
+const visibility = confirmationWindow.getAttribute("style");
+
+if (visibility === "visibility: visible;") {
+    setTimeout(function () {
+        window.location = "https://www.properfix.com";
+    }, 5000);
+}
