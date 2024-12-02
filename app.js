@@ -78,7 +78,7 @@ app.post('/send-message', (req, res) => {
 
         const message = {
           from: email,
-          to: "angelefrain23@gmail.com",
+          to: "properfix.co@gmail.com",
           subject: "properfix.com - " + fName + " " + lName,
           text: "Name: " + fName + " " + lName +
             "\n" + "Phone: " + customerPhone +
@@ -92,13 +92,12 @@ app.post('/send-message', (req, res) => {
             res.status(500).json({ message: "Error sending email" });
           } else {
             console.log(info);
-            const emailSent = "Email sent successfully";
+            const emailSent = "Message sent successfully";
             const textResponse = "Thank you for you message.";
             // Step 3: Render the confirmation page with a success message
             res.render("index.ejs", { confirmation: emailSent, message: textResponse });  // Render the EJS page with the confirmation message
           }
         });
-
       } else {
         // If reCAPTCHA failed, render the contact page with an error message
         const errorMessage = "reCAPTCHA validation failed";
