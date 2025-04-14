@@ -78,7 +78,7 @@ app.post('/send-message', (req, res) => {
 
         const message = {
           from: email,
-          to: "angelefrain96@hotmail.com",
+          to: "properfix.co@gmail.com",
           subject: "properfix.com - " + fName + " " + lName,
           text: "Name: " + fName + " " + lName +
             "\n" + "Phone: " + customerPhone +
